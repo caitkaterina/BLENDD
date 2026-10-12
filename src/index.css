@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=Michroma&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #0b0b0f;
+  --color-pink: #ffbfd9;
+  --color-pink-soft: #ffe6f0;
+  --color-fog: #f4f4f6;
+  --color-mute: #6a6a75;
+  --color-graphite: #222228;
+  --color-line: #e4e4e8;
+  --color-ok: #1f8a5b;
+  --color-warn: #c2410c;
+  --color-bad: #c0392b;
+  --font-display: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
+  --font-sans: 'Instrument Sans', system-ui, sans-serif;
+  --font-wide: 'Michroma', 'Instrument Sans', sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0b0b0f;
+  --card: #ffffff;
+  --card-foreground: #0b0b0f;
+  --primary: #ffbfd9;
+  --primary-foreground: #0b0b0f;
+  --secondary: #f4f4f6;
+  --secondary-foreground: #0b0b0f;
+  --muted: #f4f4f6;
+  --muted-foreground: #6b6b74;
+  --accent: #ffbfd9;
+  --accent-foreground: #0b0b0f;
+  --border: #e4e4e8;
+  --ring: #0b0b0f;
+  --radius: 0.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection {
+  background: var(--color-pink);
+  color: var(--color-ink);
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-pink);
+  border-radius: 4px;
+}
+.on-dark :focus-visible {
+  outline-color: #fff;
+}
+button,
+a,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* scrollbars hidden until scroll/hover */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+*:hover,
+*:focus-within {
+  scrollbar-color: #c9c9cf transparent;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.eyebrow {
+  font-family: var(--font-wide);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+.link-pink {
+  text-decoration: underline;
+  text-decoration-color: var(--color-pink);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}
+.link-pink:hover {
+  background: var(--color-pink);
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+/*
+ * Grid and flex children default to min-width:auto, so one long unbreakable
+ * line (an order ref, a nowrap button, a chart) widens the whole column past
+ * the viewport on phones. Let tracks shrink; content inside truncates/wraps.
+ */
+.grid > * {
+  min-width: 0;
+}
+:root {
+  /* Height of the phone bottom navigation bar (excluding safe area). */
+  --bottom-nav: 3.75rem;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f3 25%, #e6e6ea 37%, #f0f0f3 63%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.rule-pink {
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--color-pink);
+}
+.caps {
+  font-family: var(--font-wide);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}

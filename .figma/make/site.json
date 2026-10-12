@@ -1,0 +1,10 @@
+{
+  "description": "Connect with independent wig resellers and hair vendors in a premium marketplace, offering diverse products and seamless shopping experiences.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
